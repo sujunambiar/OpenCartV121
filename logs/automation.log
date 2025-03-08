@@ -1,0 +1,18 @@
+2025-03-06 17:04:43 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:04:43 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:04:43 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:04:57 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-06 17:04:58 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:04:58 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:04:58 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:04:58 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-06 17:05:53 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-06 17:10:34 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\crossbrowsertesting.xml
+
+2025-03-06 17:10:34 INFO  testCases.TC001_AccountRegistrationTest - ****Starting TC001_AccountRegistrationTest
+2025-03-06 17:10:34 ERROR testCases.TC001_AccountRegistrationTest - Test Failed....
