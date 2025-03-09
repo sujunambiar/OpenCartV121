@@ -35,157 +35,141 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.net.URL;
 
-
-
-
 public class BaseClass {
-	
-	
-	public static  WebDriver driver;
+
+	public static WebDriver driver;
 	public Logger logger;
 	public Properties p;
-   
+
 	private static final SecureRandom random = new SecureRandom();
-	String alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; 
-	String numbers= "1234567890";
+	String alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	String numbers = "1234567890";
 	String alphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-  
-   
-	@BeforeClass(groups= {"Sanity","Regression", "Master"})
-	@Parameters({"os","browser"})
-	
+
+	@BeforeClass(groups = { "Sanity", "Regression", "Master" })
+	@Parameters({ "os", "browser" })
+
 	public void setUp(String os, String br) throws IOException
-	
-		
+
 	{
-		//Loading config.properties
-		
+		// Loading config.properties
+
 		FileReader file = new FileReader("./src//test//resources//config.properties");
-		
+
 		p = new Properties();
 		p.load(file);
-		
-		logger=LogManager.getLogger(this.getClass());
 
-		if(p.getProperty("execution_env").equalsIgnoreCase("remote"))
-		{
-			
+		logger = LogManager.getLogger(this.getClass());
+
+		if (p.getProperty("execution_env").equalsIgnoreCase("remote")) {
+
 			DesiredCapabilities capabilities = new DesiredCapabilities();
-			
-			//os
-			
-			if(os.equalsIgnoreCase("windows"))
-			{
+
+			// os
+
+			if (os.equalsIgnoreCase("windows")) {
 				capabilities.setPlatform(Platform.WIN11);
+			} else if (os.equalsIgnoreCase("mac")) {
+				capabilities.setPlatform(Platform.WIN11);
+
 			}
-			else if (os.equalsIgnoreCase("mac"))
-			{
-			capabilities.setPlatform(Platform.WIN11);
-			
-			}
-			
-			
-			else
-			{
+
+			else {
 				System.out.println("No matching os");
 				return;
-				
+
 			}
-			//browser
-			
-			
-			
-			switch(br.toLowerCase())
-			{
-			case "chrome" : capabilities.setBrowserName("chrome"); break;
-			case "edge"	  : capabilities.setBrowserName("MicrosoftEdge"); break;
-			default: System.out.println("No matching browser"); return;
-			
+			// browser
+
+			switch (br.toLowerCase()) {
+			case "chrome":
+				capabilities.setBrowserName("chrome");
+				break;
+			case "edge":
+				capabilities.setBrowserName("MicrosoftEdge");
+				break;
+			default:
+				System.out.println("No matching browser");
+				return;
+
 			}
-			
-		
-		
-		if(p.getProperty("execution_env").equalsIgnoreCase("local"))
-		{
-			
-			switch(br.toLowerCase())
-			
-			{
-			case "chrome": driver = new ChromeDriver();break;
-			case "edge"	 : driver = new EdgeDriver();break;
-			case "firefox"	 : driver = new FirefoxDriver();break;
-			default: System.out.println("Invalid browser name"); return;
+			driver = new RemoteWebDriver(new URL(" http://192.168.2.200:4444/wd/hub"), capabilities);
+		}
+			if (p.getProperty("execution_env").equalsIgnoreCase("local")) {
+
+				switch (br.toLowerCase())
+
+				{
+				case "chrome":
+					driver = new ChromeDriver();
+					break;
+				case "edge":
+					driver = new EdgeDriver();
+					break;
+				case "firefox":
+					driver = new FirefoxDriver();
+					break;
+				default:
+					System.out.println("Invalid browser name");
+					return;
+				}
+
 			}
+
+			driver.manage().deleteAllCookies();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			driver.get(p.getProperty("appURL"));
+			driver.manage().window().maximize();
+		}
 	
-			
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-		}
-		
-				
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
-		driver.get(p.getProperty("appURL"));
-		driver.manage().window().maximize();
-		}
-	}
-	@AfterClass(groups= {"Sanity","Regression","Master"})
+
+	@AfterClass(groups = { "Sanity", "Regression", "Master" })
 	public void tearDown()
-	
+
 	{
 		driver.close();
-		
+
 	}
 
-	
 	public String randomStringGenerator(int length)
-	
-	
+
 	{
-		
+
 		StringBuilder sb = new StringBuilder(length);
-		for (int i = 0; i < length; i++) 
-		{
-			
-        sb.append(alphabets.charAt(random.nextInt(alphabets.length())));
-		
+		for (int i = 0; i < length; i++) {
+
+			sb.append(alphabets.charAt(random.nextInt(alphabets.length())));
+
 		}
 		return sb.toString();
 	}
-		
-	
-	
-		
+
 	public String randomNumberGenerator(int length)
-	
-	
+
 	{
-		
+
 		StringBuilder sb = new StringBuilder(length);
-		for (int i = 0; i < length; i++) 
-		{
-			
-        sb.append(numbers.charAt(random.nextInt(numbers.length())));
-		
+		for (int i = 0; i < length; i++) {
+
+			sb.append(numbers.charAt(random.nextInt(numbers.length())));
+
 		}
 		return sb.toString();
 	}
-	
+
 	public String randomalphaNumericGenerator(int length)
-	
-	
+
 	{
-		
+
 		StringBuilder sb = new StringBuilder(length);
-		for (int i = 0; i < length; i++) 
-		{
-			
-        sb.append(alphaNumeric.charAt(random.nextInt(alphaNumeric.length())));
-		
+		for (int i = 0; i < length; i++) {
+
+			sb.append(alphaNumeric.charAt(random.nextInt(alphaNumeric.length())));
+
 		}
 		return sb.toString();
 	}
-	
-	
+
 	public String captureScreen(String tname) throws IOException {
 
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -200,24 +184,5 @@ public class BaseClass {
 		}
 		return destination;
 
-	
 	}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+}

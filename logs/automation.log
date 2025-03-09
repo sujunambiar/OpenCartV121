@@ -16,3 +16,33 @@
 
 2025-03-06 17:10:34 INFO  testCases.TC001_AccountRegistrationTest - ****Starting TC001_AccountRegistrationTest
 2025-03-06 17:10:34 ERROR testCases.TC001_AccountRegistrationTest - Test Failed....
+2025-03-08 15:40:18 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-08 15:53:38 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-08 15:53:55 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\grouping.xml
+
+2025-03-08 15:55:14 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-08 16:08:38 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-08 16:08:47 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:08:51 INFO  testCases.TC003_LoginDDT - ***********Finished TC003_LoginDDT************
+2025-03-08 16:08:51 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:08:53 INFO  testCases.TC003_LoginDDT - ***********Finished TC003_LoginDDT************
+2025-03-08 16:08:53 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:09:03 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:09:43 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\vipin\eclipse-workspace-SDET\opencartv121\master.xml
+
+2025-03-08 16:09:49 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:09:52 INFO  testCases.TC003_LoginDDT - ***********Finished TC003_LoginDDT************
+2025-03-08 16:09:52 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:09:54 INFO  testCases.TC003_LoginDDT - ***********Finished TC003_LoginDDT************
+2025-03-08 16:09:54 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
+2025-03-08 16:10:04 INFO  testCases.TC003_LoginDDT - ***********Started TC003_LoginDDT************
